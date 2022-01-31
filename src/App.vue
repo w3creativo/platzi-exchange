@@ -1,11 +1,10 @@
 <script>
-import PxHeader from "./components/PxHeader.vue"
-import PxAssetsTable from "./components/PxAssetsTable.vue"
+import PxHeader from "@/components/PxHeader.vue"
+import Home from "@/views/Home.vue"
 
 export default {
-  components: { PxAssetsTable },
   name: "app",
-  components: [PxHeader],
+  components: [PxHeader, Home],
 }
 </script>
 

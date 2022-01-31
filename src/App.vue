@@ -1,11 +1,11 @@
 <script>
 import PxHeader from "./components/PxHeader.vue"
-import PxAssetsTable from './components/PxAssetsTable.vue'
+import PxAssetsTable from "./components/PxAssetsTable.vue"
 
 export default {
   components: { PxAssetsTable },
-    name: "app",
-    components: [ PxHeader ]
+  name: "app",
+  components: [PxHeader],
 }
 </script>
 

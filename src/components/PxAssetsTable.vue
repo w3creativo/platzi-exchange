@@ -29,7 +29,14 @@
         <td>
           <b>{{ item.rank }}</b>
         </td>
-        <td>{{ item.name }}</td>
+        <td>
+          <router-link
+            class="hover:underline text-green-600"
+            :to="{ name: 'coin-detail', params: { id: item.id } }"
+            >{{ item.name }}</router-link
+          >
+          <small class="ml-1 text-gray-500">{{ item.symbol }}</small>
+        </td>
         <td>{{ moneyFilter(item.priceUsd) }}</td>
         <td>{{ moneyFilter(item.marketCapUsd) }}</td>
         <td
@@ -41,17 +48,24 @@
         >
           {{ percentF(item.changePercent24Hr) }}
         </td>
-        <td class="hidden sm:block"></td>
+        <td class="hidden sm:block">
+          <px-button @click="goToCoin(item.id)">
+            <span>Detalle</span>
+          </px-button>
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
-import { dollarFilter, percentFilter } from '@/filter'
+import { dollarFilter, percentFilter } from "@/filter"
+import PxButton from "@/components/PxButton.vue"
 
 export default {
-  name: 'PxAssetsTable',
+  name: "PxAssetsTable",
+
+  components: [PxButton],
 
   props: {
     assets: {
@@ -62,17 +76,20 @@ export default {
   methods: {
     moneyFilter: dollarFilter,
     percentF: percentFilter,
+    goToCoin(id) {
+      this.$router.push({ name: "coin-detail", params: { id } })
+    },
   },
 }
 </script>
 
 <style scoped>
 .up::before {
-  content: '👆';
+  content: "👆";
 }
 
 .down::before {
-  content: '👇';
+  content: "👇";
 }
 
 td {

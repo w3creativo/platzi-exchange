@@ -4,7 +4,9 @@
     @click="buttonClick"
   >
     <loading v-model:active="isLoading" :is-full-page="false" />
-    <slot v-if="!isLoading"></slot>
+    <p v-show="!isLoading">
+      <slot></slot>
+    </p>
   </button>
 </template>
 

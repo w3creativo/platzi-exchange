@@ -1,8 +1,13 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue"
+import App from "./App.vue"
+import VueChartkick from "vue-chartkick"
+import "chartkick/chart.js"
 
-import '@/assets/styles.css'
+import VueLoading from "vue-loading-overlay"
+import "vue-loading-overlay/dist/vue-loading.css"
 
-import router from '@/router'
+import "@/assets/styles.css"
 
-createApp(App).use(router).mount('#app')
+import router from "@/router"
+
+createApp(App).use(router).use(VueChartkick).use(VueLoading).mount("#app")
